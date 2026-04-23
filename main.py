@@ -23,10 +23,8 @@ def main():
 
         print(f"Se han procesado {len(results)} vulnerabilidades, ordenadas por deuda:\n")
 
-        for res in results:
-            alert_text = "[CRÍTICO]" if res['interest_rate'] > 20 else "[WARNING]"
-            
-            print(f"{alert_text} [{res['severity'].upper()}] {res['id']} detectado en el paquete '{res['package']}'")
+        for res in results:            
+            print(f"[{res['severity'].upper()}] {res['id']} detectado en el paquete '{res['package']}'")
             print(f"    ↳ Descripción: {res['description']} ({res['id']})")
             print(f"    ↳ Tasa de interés: {res['interest_rate']}")
             print(f"    ↳ Probabilidad de ataque futuro:   {res['attack_probability']} %\n")
